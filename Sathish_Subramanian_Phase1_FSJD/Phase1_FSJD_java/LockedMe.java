@@ -47,33 +47,33 @@ public class LockedMe {
 	public void secondaryMenu() {
 		System.out.println(SECONDARY_PROMPT);
 		try { Scanner sb=new Scanner(System.in);
-		char[] a =sb.nextLine().toLowerCase().trim().toCharArray();
-		char b= a[0];
+		char[] aa =sb.nextLine().toLowerCase().trim().toCharArray();
+		char ab= aa[0];
 
-		switch (b)
+		switch (ab)
 		{
-		case a: {
+		case 'a': {
 			System.out.println("Adding a new file...Please enter a file name : ");
 			String name=sb.next().trim().toLowerCase();
 			addFile(name);
 			break;
 			
 		}
-		case b : {
+		case 'b' : {
 			System.out.println("Deleting the file...Please enter the file name : ");
 			String name=sb.next().trim().toLowerCase();
 			deleteFile(name);
 			
 		}
 		
-		case c : {
+		case 'c' : {
 			System.out.println("Searching the file...Please enter a file name : ");
 			String name=sb.next().trim().toLowerCase();
 			searchFile(name);
 			
 		}
 		
-		case d : {
+		case 'd' : {
 			System.out.println("Switching to Primary Menu /n");
 			primaryMenu();
 		}
@@ -147,6 +147,30 @@ public class LockedMe {
 		path.createNewFile();
 		System.out.println("File "+ name +"is created at " + folder_name);
 	}
+	
+	void deleteFile(String name)  throws IOException{
+		   File path = new File(folder_name+"/"+name);
+		   String[] list= folder_name.list();
+			 for (String file: list) {
+	            if (name.equals(file) && path.delete()) {
+	                System.out.println("File " + name + " deleted from " + folder_name);
+	                return;
+	            }
+	        }
+	        System.out.println("Delete Operation failed. FILE NOT FOUND");
+	    }
+	
+	 void searchFile(String name)  throws IOException{
+			String[] list = folder_name.list();
+	        for (String file: list) {
+	            if (name.equals(file)) {
+	                System.out.println("FOUND : File " + name + " exists at " + folder_name);
+	                return;
+	            }
+	        }
+	        System.out.println("File NOT found (FNF)");
+			
+		}
 
 
   
