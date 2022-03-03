@@ -119,6 +119,22 @@ public class LockedMe {
 			     "c --> Search a file\n"+
 	                "d --> Previous Menu \n";
 	 
+	void showFiles() {
+		if(folder_name.list().length==0) {
+			System.out.println("The folder is empty");
+		} else if(folder_name.list().length==1) {
+			String[] str=folder_name.list();
+			System.out.println("The file in "+folder_name+" is :"+str);
+		}
+		else {
+			String[] name = folder_name.list();
+			System.out.println("The files in "+folder_name+" are :");
+		    Arrays.sort(name);
+		    for (String str: name) {
+		    	System.out.println(str);
+		    }
+		}
+	}
 
 
   
