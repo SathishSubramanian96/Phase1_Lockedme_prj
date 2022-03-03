@@ -29,7 +29,7 @@ public class LockedMe {
 		}
 		
 		case 3 : {
-			System.out.println("Thank You\n"+ "Happy Learning\n");
+			System.out.println("################# Thank You #################\n"+ "#################  Happy Learning  #################\n");
 			System.exit(0);
 		} 
 		
@@ -46,8 +46,11 @@ public class LockedMe {
 	}
 	
 	public void secondaryMenu() {
+		
 		System.out.println(SECONDARY_PROMPT);
-		try { Scanner sb=new Scanner(System.in);
+		
+		try { 
+		Scanner sb=new Scanner(System.in);
 		char[] aa =sb.nextLine().toLowerCase().trim().toCharArray();
 		char ab= aa[0];
 
