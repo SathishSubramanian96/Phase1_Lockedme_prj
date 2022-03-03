@@ -135,6 +135,18 @@ public class LockedMe {
 		    }
 		}
 	}
+	
+	void addFile(String name)  throws IOException{
+		File path = new File(folder_name+"/"+name);
+		String[] list= folder_name.list();
+		for(String file: list)
+		if(name.equalsIgnoreCase(file)) {
+			System.out.println("File " + file+ "already exist at "+"folder_name\n");
+			return;
+		}
+		path.createNewFile();
+		System.out.println("File "+ name +"is created at " + folder_name);
+	}
 
 
   
