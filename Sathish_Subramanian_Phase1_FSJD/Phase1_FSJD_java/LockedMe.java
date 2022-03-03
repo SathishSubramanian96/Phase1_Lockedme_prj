@@ -13,7 +13,7 @@ public class LockedMe {
 		System.out.println(PRIMARY_PROMPT);
 		Scanner sc  = new Scanner(System.in);
 		int option =sc.nextInt();
-		sc.close();
+		
 		
 		
 		switch(option) {
@@ -25,6 +25,7 @@ public class LockedMe {
 		
 		case 2 : {
 			 secondaryMenu();
+			 break;
 		}
 		
 		case 3 : {
@@ -56,6 +57,7 @@ public class LockedMe {
 			System.out.println("Adding a new file...Please enter a file name : ");
 			String name=sb.next().trim().toLowerCase();
 			addFile(name);
+			secondaryMenu();
 			break;
 			
 		}
@@ -63,6 +65,8 @@ public class LockedMe {
 			System.out.println("Deleting the file...Please enter the file name : ");
 			String name=sb.next().trim().toLowerCase();
 			deleteFile(name);
+			secondaryMenu();
+			break;
 			
 		}
 		
@@ -70,19 +74,21 @@ public class LockedMe {
 			System.out.println("Searching the file...Please enter a file name : ");
 			String name=sb.next().trim().toLowerCase();
 			searchFile(name);
+			secondaryMenu();
+			break;
 			
 		}
 		
 		case 'd' : {
-			System.out.println("Switching to Primary Menu /n");
+			System.out.println("Switching to Primary Menu \n");
 			primaryMenu();
 		}
 		
 		default : 
-			
-			
-		}
-		}catch (Exception e)
+			System.out.println("Please enter any of the following option a, b, c or d \n");
+			secondaryMenu();
+		  }
+	} catch (Exception e)
 		{
 			System.out.println("Please enter any of the following option a, b, c or d \n");
 			secondaryMenu();
@@ -124,7 +130,7 @@ public class LockedMe {
 			System.out.println("The folder is empty");
 		} else if(folder_name.list().length==1) {
 			String[] str=folder_name.list();
-			System.out.println("The file in "+folder_name+" is :"+str);
+			System.out.println("The file in "+folder_name+" is : "+str[0]);
 		}
 		else {
 			String[] name = folder_name.list();
@@ -141,11 +147,11 @@ public class LockedMe {
 		String[] list= folder_name.list();
 		for(String file: list)
 		if(name.equalsIgnoreCase(file)) {
-			System.out.println("File " + file+ "already exist at "+"folder_name\n");
+			System.out.println("File " + file+ " already exist at "+"folder_name\n");
 			return;
 		}
 		path.createNewFile();
-		System.out.println("File "+ name +"is created at " + folder_name);
+		System.out.println("File "+ name +" is created at " + folder_name);
 	}
 	
 	void deleteFile(String name)  throws IOException{
@@ -168,7 +174,7 @@ public class LockedMe {
 	                return;
 	            }
 	        }
-	        System.out.println("File NOT found (FNF)");
+	        System.out.println("File not found (FNF)");
 			
 		}
 
